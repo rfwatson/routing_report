@@ -29,7 +29,7 @@ module RoutingReport
           # actions in a superclass:
           matching_controllers = controller.ancestors.select { |c| c < base_class }
 
-          unless matching_controllers.any? { |c| c.public_instance_methods(false).include?(action_name.to_sym) }
+          unless matching_controllers.any? { |c| c.public_instance_methods.include?(action_name.to_sym) }
             accum << "#{controller_name}##{action_name}"
           end
         end
